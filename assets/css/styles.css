@@ -13346,6 +13346,13 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
+.border-red {
+  border: 1px solid red;
+}
+
+
+
+
 /* 
 .modal {
   position: relative;

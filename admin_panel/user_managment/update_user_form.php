@@ -1,6 +1,7 @@
-<form id="saveUser">
+<form id="updateUser">
     <div class="modal-body">
-        <div id="errorMessage" class="alert alert-warning d-none"></div>
+        <div id="errorMessageUpdate" class="alert alert-warning d-none"></div>
+        <input type="hidden" name="user_id" id="user_id">
         <div class="row">
             <div class="m-1">
 
@@ -14,7 +15,7 @@
                         <span class="input-group-text"> <i class="fa fa-user m-1 alert-primary"></i>
                         </span>
                     </div>
-                    <input name="username" class="form-control" type="text" value="" placeholder=<?PHP echo "\"" . $init::USERNAME . "
+                    <input name="username" id="username" class="form-control" type="text" value="" placeholder=<?PHP echo "\"" . $init::USERNAME . "
                         \""; ?>>
 
                 </div>
@@ -34,7 +35,7 @@
                         <span class="input-group-text"> <i class="fa fa-user m-1 alert-primary"></i>
                         </span>
                     </div>
-                    <input name="m-email" class="form-control" type="text" value="" placeholder=<?PHP echo "\"" . $init::EMAIL . "
+                    <input name="m-email" id="m-email" class="form-control" type="email" value="" placeholder=<?PHP echo "\"" . $init::EMAIL . "
                         \""; ?>>
 
                 </div>
@@ -54,14 +55,14 @@
                         <span class="input-group-text"> <i class="fa fa-user m-1 alert-primary"></i>
                         </span>
                     </div>
-                    <input name="fname" class="form-control" type="text" value="" placeholder=<?PHP echo "\"" . $init::FULL_NAME . "
+                    <input name="fname" id="fname" class="form-control" type="text" value="" placeholder=<?PHP echo "\"" . $init::FULL_NAME . "
                         \""; ?>>
 
                 </div>
                 <div class=""></div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="m-1">
 
                 <label for=<?PHP echo "\"" . $init::NEW_PASSWORD . " \"" ?>>
@@ -74,7 +75,7 @@
                         <span class="input-group-text"> <i class="fa fa-lock m-1 alert-primary"></i>
                         </span>
                     </div>
-                    <input name="newPassword" id="newPassword" class=" newPassword form-control" type="password"
+                    <input name="newPassword" id="newPassword" class="form-control" type="password"
                         onkeyup="validateNewPassword(this.value)" value="" placeholder=<?PHP echo "\"" . $init::NEW_PASSWORD . "
                         \""; ?>>
 
@@ -96,17 +97,17 @@
                         </span>
                     </div>
                     <input name="confirmPassword" id="confirmPassword" class="form-control"
-                        onkeyup="validateConfirmPassword(newPassword.value, this.value)" type="password" value="" placeholder=<?PHP
+                        onkeyup="validateConfirmPassword()" type="password" value="" placeholder=<?PHP
                         echo "\"" . $init::CONFIRM_PASSWORD . " \""; ?>>
 
                 </div>
                 <div class="confirmPasswordMsg"></div>
             </div>
-        </div>
+        </div> -->
 
     </div>
     <div class="modal-footer">
-        <button type="button" class="closeSaveUserBtn btn btn-secondary" data-bs-dismiss="modal">
+        <button type="button" class="closeUpdateUserBtn btn btn-secondary" data-bs-dismiss="modal">
             <?PHP echo $init::CLOSE ?>
         </button>
         <button type="submit" class="btn btn-primary">

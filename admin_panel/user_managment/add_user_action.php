@@ -24,7 +24,7 @@ $userRecord = $member->getUser($username);
 if (!empty($userRecord)) {
     $res = [
         'status' => 423,
-        'message' => $username . $init::TAB . $init::ALREADY_REGISTERED
+        'message' => $username . $init::TAB . $init::ALREADY_HAVE_ACCOUNT
     ];
     echo json_encode($res);
     return;

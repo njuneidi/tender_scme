@@ -2,7 +2,10 @@
 if (!empty($memberInfo)) {
     $memberID = $memberInfo[0]['member_id'];
 }
-if ($isAdmin) {
+if ($isOTP) {
+    require_once("../recover_password.php");
+
+} elseif ($isAdmin) {
     if ($isSuperAdmin) {
 
         require_once("main_dashboard_superadmin.php");

@@ -322,6 +322,7 @@
     });
 
     $(document).on('click', '.viewStudentBtn', function () {
+     
 
         var student_id = $(this).val();
         $.ajax({

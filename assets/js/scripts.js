@@ -18,6 +18,7 @@ CONTAINS_DIGIT = "يجب ان تحوي كلمة المرور على عدد وا�
 MATCH_PASSWORD = "كلمة المرور غير متطابقة ";
 PASSWORD_UPDATED_SUCCSESSFULL = "تم تغيير كلمة المرور بنجاح";
 const MOBILE_NO_SHOULD_BE_10_Digits = "رقم الموبايل يجب ان يكون مكون من 10 خانات";
+const ALERTIFIER_TIME = 1;
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
@@ -36,10 +37,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-function recover_() {
-    alert('x');
 
-};
 
 
 // menu item link
@@ -58,160 +56,10 @@ function btnclick(_url) {
         }
     });
 }
-// // History API 
-// if (window.history && window.history.pushState) {
-//     const state = { page_id: 1, user_id: 5 };
-//     const url = "index.php";
-//     history.pushState("", null, url);
-//     $(window).on("popstate", function (event) {
-//         if (!event.originalEvent.state) {
-//             history.pushState("index.php", null, url);
-//             return;
-//         }
-//     });
-// }
-// if( window.history && window.history.pushState ){
-
-//     history.pushState( "nohb", null, "" );
-//     $(window).on( "popstate", function(event){
-//       if( !event.originalEvent.state ){
-//         history.pushState( "nohb", null, "" );
-//         return;
-//       }
-//     });
-//   }
-
-// $(window).on('popstate', function (event) {
-//     alert("pop");
-// });
-
-// function addClicker(link) {
-//     link.addEventListener("click", function (e) {
-//         swapPhoto(link.href);
-//         history.pushState(null, null, link.href);
-//         e.preventDefault();
-//     }, false);
-// }
-// window.onpopstate = function () {
-//    // alert("pop!");
-// }
-
-//window.onpopstate = function () {
-//  alert("pop!");
-// var res = localStorage.getItem('pre');
-// localStorage.removeItem('query');
-// alert(res);
-// menubtnclick(res);
-
-// $('#DIVID').load(href);
-// href = (href == "") ? "/" : href;
-// uri = window.location.href.split("#/");
-// window.location.href = uri[0] + "#/" + href;
-
-// var res = localStorage.getItem('query');
-// alert(res);
-// menubtnclick('dashboard');
-// addClicker(document.getElementById("dashboard"));
-// addClicker(document.getElementById("a_users"));
-// var res = localStorage.getItem('response');
-// history.pushState(null, "", 'index.php');
-// document.write(res.toString());
-// $('#DIVID').html(res);
-//}
-// if (typeof (window.history.pushState) == 'function') {
-//     var query = document.getElementById("dashboard");
-//     var stateObj = {
-//         title: title,
-//         url: query,
-//     };
-//     window.history.pushState(stateObj, title, query);
-//     //  document.location.href.substring(0, document.location.href.lastIndexOf('/') + 1)
-// }
-
-// addEventListener('popstate', event => {
-//     let state = event.state;
-//     alert(state);
-//     if (state === null) {
-//         // special case: This is the state before pushState was called
-//         // We know what that should be:
-//         state = { value: 'dashboard' };
-//     }
-//     div.textContent = state.value;
-//     console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
-// });
-
-
-
-// history.pushState({ page: 1 }, "title 1", "?page=1");
-// history.pushState({ page: 2 }, "title 2", "?page=2");
-// history.replaceState({ page: 3 }, "title 3", "?page=3");
-// history.back(); // alerts "location: http://example.com/example.html?page=1, state: {"page":1}"
-//history.back(); // alerts "location: http://example.com/example.html, state: null"
-//history.go(2);
-
-//var x = null;
-// window.onstorage = event => { // can also use window.addEventListener('storage', event => {
-//     if (event.key != 'now') return;
-//     alert(event.key + ':' + event.newValue + " at " + event.url);
-// };
-// // var t=document.getElementById($("#")).getAttribute('value')
-// var t = localStorage.getItem('now')
-// window.onhashchange = function () {
-//     // history.popState();
-//     // var link = document.getElementById('x');
-//     //  var link2 = localStorage.getItem('link');
-
-
-//     // alert(link);
-//     // alert(link2);
-//     // window.location.reload(link);
-//     // alert('Pop2');
-//     // res = localStorage.getItem('pre');
-//     // x = res.split(/[ ,]+/);
-//     // alert(x[x.length - 1]);
-//     // alert(x[x.length - 2]);
-
-//     // menubtnclick(x[x.length - 2]);
-//     //blah blah blah
-// }
-// window.addEventListener("popstate", (event) => {
-
-// });
-
-// $(document).ready(function () {
-
-//     // Listen for clicks on the sidebar menu items.
-//     $('.nav-link8').on('click', function () {
-//         // Get the id of the clicked menu item.
-//         var menuItemId = $(this).attr('id');
-//         //  alert(menuItemId);
-//         // Fetch the content of the main section for the clicked menu item.
-//         $.get('main.php', { menuItemId: menuItemId }, function (content) {
-//             // Replace the content of the main section with the content that was returned from the PHP function.
-//             $('#DIVID').html(content);
-
-//             // Use the history.pushState() method to create a new entry in the browser's history.
-//             history.pushState({}, "", "");
-//             $.cache.set("DIVID", content);
-//         });
-//     });
-// });
 
 function menubtnclick1(_menuItem) {
 
-    // var pre = localStorage.getItem('pre');
-    // // alert('previous clicked' + pre);
-    // if (pre == null || !pre || pre.length == 0) {
-    //     pre = _menuItem;
-    //     localStorage.setItem('pre', pre);
-    // }
-    // else {
-    //     pre = pre + ',' + _menuItem;
-    //     localStorage.setItem('pre', pre);
-    // }
-    // var link = document.getElementById('x');
-    // localStorage.setItem('link', link);
-    // history.pushState({ page: _menuItem }, "title " + _menuItem, "?link=" + _menuItem);
+
     $.ajax({
         url: 'main.php',
         type: 'POST',
@@ -220,24 +68,9 @@ function menubtnclick1(_menuItem) {
         },
         success: function (response, data) {
 
-
-            // mobject = y + _menuItem;
-            //  var mobject = localStorage.getItem('query')
-            // localStorage.setItem('now', _menuItem + y);
-            // alert(data);
-            // localStorage.setItem("response", response);
             $('#DIVID').html(response);
             $.cache.set("DIVID", response);
 
-            // history.pushState({ page: 1 }, "title 1", "?page=1");
-
-            // updateAjax(url)
-            //updateAjax('test.html');
-            // if (_menuItem == 'dashboard') {
-            //     $('#test').html(response);
-            // }
-            //  document.write(response);
-            // history.pushState({}, "", "");
         },
         error: function () {
             $('#DIVID').text('An error occurred');
@@ -260,12 +93,15 @@ function openModal(id) {
     document.getElementById('myModal').style.display = 'block';
 }
 
+function alertifyMsg(delay, message) {
+    alertify.set('notifier', 'delay', delay);
+    alertify.set('notifier', 'position', 'top-right');
+    alertify.success(message);
 
+}
 
 function actionclick(_action, _id, _admin, _status) {
-    alert('d');
-    // sessionStorage.setItem('link', '_menuItem');
-    //alert('ffff');
+
     $.ajax({
         url: 'user_managment/user_action.php',
         type: 'POST',
@@ -274,15 +110,24 @@ function actionclick(_action, _id, _admin, _status) {
             "action": _action,
             "id": _id,
             "admin": _admin,
-            "userStatus": _status,
+            "userStatus": _status
 
         },
-        success: function (response, data) {
-            //localStorage.setItem("response", response);
-
-            //success(response);
-            $('#DIVID').html(response);
-            // document.write(response);
+        success: function (response) {
+            //   alert(response);
+            var res = jQuery.parseJSON(response);
+            if (res.status == 0) {
+                alertify.set('notifier', 'delay', ALERTIFIER_TIME);
+                alertify.set('notifier', 'position', 'top-right');
+                alertify.success(res.message);
+            }
+            if (res.status == 500) {
+                alertify.set('notifier', 'delay', ALERTIFIER_TIME);
+                alertify.set('notifier', 'position', 'top-right');
+                alertify.success(res.message);
+            }
+            // $('#DIVID').load(location.href + " #DIVID");
+            $('#myTable').load(location.href + " #myTable");
         },
         error: function () {
             $('#DIVID').text('An error occurred');
@@ -301,18 +146,9 @@ function btnclick2(_url) {
         }
     });
 }
-// $(document).ready(function () {
-//     $("#newPassword").change(function () {
-//         alert('x');
-//         //do stuff
-//     });
-// })
-// function myFunction() {
-//     alert('hi');
 
-// }
 function validateCurrentPassword1() {
-    // alert('l');
+    alert('l');
     $.ajax({
         url: 'change_password.php',
         type: 'post',
@@ -374,10 +210,12 @@ function validateCurrentPassword() {
 
 
 }
-function validateConfirmPassword() {
+function validateConfirmPassword(nPassword, cPassword) {
     $(".confirmPasswordMsg").html('');
-    newPassword = $("#newPassword").val();
-    confirmPassword = $("#confirmPassword").val();
+    // newPassword = $("#newPassword").val();
+    // confirmPassword = $("#confirmPassword").val();
+    newPassword = nPassword;
+    confirmPassword = cPassword;
     confirmPasswordMsg = "";
     if ((newPassword != confirmPassword)) {
         confirmPasswordMsg = confirmPasswordMsg + MATCH_PASSWORD + "<br>";
@@ -390,8 +228,10 @@ function validateConfirmPassword() {
 
     }
 }
-function validateNewPassword() {
-    newPassword = $("#newPassword").val();
+function validateNewPassword(password) {
+    // newPassword = $(".newPassword").val();
+    newPassword = password;
+
     $(".newPasswordMsg").html('');
     var newPasswordMsg = "";
     //$(".confirmPasswordMsg").hide();
@@ -424,8 +264,73 @@ function validateNewPassword() {
 
 }
 
-function recover(_userID) {
+function recover(_userID, nPassword, cPassword, _action) {
+    //alert('x' + _action);
+    $(".newPasswordMsg").hide();
+    $(".confirmPasswordMsg").hide();
+    var newPasswordMsg = '';
+    var confirmPasswordMsg = '';
+    newPassword = nPassword;
+    confirmPassword = cPassword;
+    newPasswordMsg = validateNewPassword(newPassword);
+    confirmPasswordMsg = validateConfirmPassword(newPassword, confirmPassword);
+    if (validateNewPassword(newPassword) && validateConfirmPassword(newPassword, confirmPassword)) {
 
+        $.ajax({
+            url: _action == 'recovry' ? 'index.php' : '../index.php',
+            type: 'POST',
+            data: {
+                "userID": _userID,
+                "newPassword": newPassword,
+                "confirmPassword": confirmPassword,
+                "action": _action
+            },
+            cashe: false,
+            success: function (response, data) {
+                if (_action == "recover") {
+                    //  alert(response);
+                    //  alert(PASSWORD_UPDATED_SUCCSESSFULL);
+                    console.log('xsxx');
+                    window.history.pushState("object or string", "Title", "/tender_scme/");
+                    document.write(response);
+                    $('#feedback-info').html(PASSWORD_UPDATED_SUCCSESSFULL);
+                    $('#feedback-info').removeClass('d-none');
+                    alertifyMsg(5, PASSWORD_UPDATED_SUCCSESSFULL);
+                } else {
+                    alert(PASSWORD_UPDATED_SUCCSESSFULL);
+                    //alert(response);
+                    console.log('eeee');
+                    // $('#divid').load(location.href + " #divid");
+                    //$('#signupid').html(response);
+                    //head
+                    // window.Location('../index.php');
+                    // alertifyMsg(5, PASSWORD_UPDATED_SUCCSESSFULL);
+                    location.replace("index.php");
+
+                    //document.write(response);
+                }
+
+
+            },
+            error: function () {
+                // alert('not ')
+                console.log('xfsxx');
+                //  $("#DIVID").html('data');
+            }
+        });
+
+    } else {
+        return false;
+    }
+    // return false;
+    //alert('out');
+
+
+
+};
+function reassign(_userID, nPassword, cPassword) {
+    alert('xx');
+    // alert(nPassword + " " + cPassword);
     //  $(".currentPasswordMsg").hide();
     $(".newPasswordMsg").hide();
     $(".confirmPasswordMsg").hide();
@@ -437,21 +342,22 @@ function recover(_userID) {
 
     // alert(currentPassword.value);
     // currentPassword = $("#currentPassword").val();
-    newPassword = $("#newPassword").val();
-    confirmPassword = $("#confirmPassword").val();
+    // newPassword = $("#newPassword").val();
+    // confirmPassword = $("#confirmPassword").val();
+    newPassword = nPassword;
+    confirmPassword = cPassword;
     // recover_password = $("#recover_password").val();
-    newPasswordMsg = validateNewPassword();
-    confirmPasswordMsg = validateConfirmPassword();
-
-    if (validateNewPassword() && validateConfirmPassword()) {
-        //alert('x');
+    newPasswordMsg = validateNewPassword(newPassword);
+    confirmPasswordMsg = validateConfirmPassword(newPassword, confirmPassword);
+    if (validateNewPassword(newPassword) && validateConfirmPassword(newPassword, confirmPassword)) {
+        // alert('x');
         var input = {
             "userID": _userID,
             "newPassword": newPassword,
             "confirmPassword": confirmPassword,
         };
         $.ajax({
-            url: 'index.php',
+            url: 'user_mamgment/reset_password_user_action.php',
             type: 'POST',
             data: {
                 "userID": _userID,
@@ -467,8 +373,8 @@ function recover(_userID) {
                 window.history.pushState("object or string", "Title", "/tender_scme/");
 
                 document.write(response);
-
-                //  $("#DIVID").html(response);
+                //$('#DIVID').load(location.href + " #DIVID");
+                //$("#DIVID").html(response);
                 //   $(".validation-message").html(response);
                 //$(".validation-message").addClass('alert-danger');
                 //  $(".validation-message").show();
@@ -548,8 +454,8 @@ function recover(_userID) {
 //         }
 //     });
 // });
-function changePassword() {
-    // alert('change password');
+function changePassword(nPassword, cPassword) {
+    //  alert('change password' + ' ' + nPassword + ' ' + cPassword);
     $(".currentPasswordMsg").hide();
     $(".newPasswordMsg").hide();
     $(".confirmPasswordMsg").hide();
@@ -559,12 +465,15 @@ function changePassword() {
 
     // alert(currentPassword.value);
     currentPassword = $("#currentPassword").val();
-    newPassword = $("#newPassword").val();
-    confirmPassword = $("#confirmPassword").val();
-    newPasswordMsg = validateNewPassword();
-    confirmPasswordMsg = validateConfirmPassword();
-    if (validateNewPassword() && validateConfirmPassword()) {
-        //alert('x');
+    // newPassword = $("#newPassword").val();
+    // confirmPassword = $("#confirmPassword").val();
+    newPassword = nPassword;
+    // confirmPassword = cPassword;
+    // newPasswordMsg = validateNewPassword(newPassword);
+    confirmPasswordMsg = validateConfirmPassword(newPassword, confirmPassword);
+    //alert('xx');
+    if (validateNewPassword(newPassword) && validateConfirmPassword(newPassword, confirmPassword)) {
+        //  alert('x');
         var input = {
             "currentPassword": currentPassword,
             "newPassword": newPassword,
@@ -578,7 +487,15 @@ function changePassword() {
             type: 'POST',
             data: input,
             success: function (response) {
-                alert(PASSWORD_UPDATED_SUCCSESSFULL);
+                //  alert(response);
+                // alert(PASSWORD_UPDATED_SUCCSESSFULL);
+                var res = jQuery.parseJSON(response);
+                // alert(res.message);
+                //alert(res.message);
+                if (res.status == 0) {
+                    alertifyMsg(1, res.message);
+
+                } if (res.status == 500) { alertifyMsg(1, res.message); }
                 //alert('newPassword');
                 console.log('xsxx');
 

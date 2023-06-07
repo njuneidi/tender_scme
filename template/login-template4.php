@@ -18,7 +18,7 @@ $init = new Init();
                 <!-- padding for md is 7 marging left right for md 4 -->
 
                 <div class="text-center">
-                  <img src="assets/images/logo.png" style="width: 185px;" alt="logo">
+                  <img src="../assets/images/logo.png" style="width: 185px;" alt="logo">
                   <!-- <h5 class="mt-1 mb-1 pb-1"> صفحة العطاءات</h4> -->
                 </div>
 
@@ -28,7 +28,7 @@ $init = new Init();
                   ?>
                 </div>
 
-                <form name="login" action="" method="post" class="m-1  bg1-primary"
+                <form name="login" action="../index.php" method="post" class="m-1  bg1-primary"
                   onsubmit="return checkPassword(this)">
                   <p>
                     <?PHP echo $init::PAGE . $init::TAB . $init::THE . $init::REGISTER ?>
@@ -203,7 +203,7 @@ $init = new Init();
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <div class="col-md-6" mb-1><p class=" text-center mb-0 me-2"><?PHP echo $init::DONT_HAVE_ACCOUNT.$init::SPACE.$init::WELCOM_TO_LOGIN ?> </p></div> 
                    <div class="col-md-6 mb-1"> <button type="button" class="btn btn-outline-primary"
-                      onclick=" window.location = 'index.php';"><?PHP echo $init::ENTER ?></button></div>
+                      onclick=" window.location = '../';"><?PHP echo $init::ENTER ?></button></div>
                   </div>
 
                 </form>

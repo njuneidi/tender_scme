@@ -45,6 +45,7 @@ function test(form) {
 };
 
 function signup(_url) {
+    alet(5);
     $.ajax({
         url: _url,
         type: 'post',

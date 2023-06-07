@@ -25,6 +25,8 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" href="../assets/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
         rel="stylesheet">
     <!-- 
@@ -76,10 +78,10 @@ if (empty($_SESSION['username'])) {
     </div>
 
     <script src="../assets/js/all.min.js"></script>
+    <script src="../assets/js/alertify.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js.map"></script>
-    <script defer src="../assets/js/datatables-simple-demo"></script>
-    <script src="../assets/js/jsscripts.js"></script>
+    <!-- <script src="../assets/js/bootstrap.bundle.min.js.map"></script> -->
+    <script defer src="../assets/js/datatables-simple-demo.js"></script>
     <script defer src="../assets/js/jquery-3.6.4.js"></script>
     <script defer src="../assets/js/scripts.js"></script>
 

@@ -263,7 +263,10 @@ function openModal(id) {
 
 
 function actionclick(_action, _id, _admin, _status) {
-    alert('d');
+
+    alertify.set('notifier', 'position', 'top-right');
+    alertify.success('res.message');
+    // alert('d');
     // sessionStorage.setItem('link', '_menuItem');
     //alert('ffff');
     $.ajax({
@@ -277,12 +280,14 @@ function actionclick(_action, _id, _admin, _status) {
             "userStatus": _status,
 
         },
-        success: function (response, data) {
-            //localStorage.setItem("response", response);
+        success: function (response) {
+            var res = jQuery.parseJSON(response);
 
-            //success(response);
-            $('#DIVID').html(response);
-            // document.write(response);
+
+             alertify.set('notifier', 'position', 'top-right');
+            alertify.success(res.message);
+            // $('#DIVID').load(location.href + " #DIVID");
+            $('#myTable').load(location.href + " #myTable");
         },
         error: function () {
             $('#DIVID').text('An error occurred');

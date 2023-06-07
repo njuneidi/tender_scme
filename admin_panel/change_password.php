@@ -28,14 +28,20 @@ if (!empty($_POST['currentNewPassword'])) {
 if (!empty($_POST['newPassword'])) {
     // $hashedPassword = $memberRecord[0]['password'];
     $password = $_POST['newPassword'];
-    $member->updatePassword($memberRecord[0]['user_id'], $password);
-    // if (password_verify($_POST["newPassword"], $hashedPassword)) {
+    $member->updatePassword($memberRecord[0]['user_id'], $password, 0, 0) ?
+        $res = [
+            'status' => 200,
+            'message' => $init::UPDATED_SUCCESSFULLY,
+            //'data' => $user
+        ] :
+        $res = [
+            'status' => 500,
+            'message' => $init::DOESNOT_UPDATE_SUCCESSFULLY,
+            // 'data' => $user
+        ];
 
-    //     $member->updatePassword($memberRecord[0]['user_id'], $password);
-
-    //     $message = "Password Changed";
-    // } else
-    //     $message = "Current Password is not correct".$hashedPassword." ".$password;
+    echo json_encode($res);
+    return;
 
 }
 
@@ -66,7 +72,8 @@ if (!empty($_POST['newPassword'])) {
                 </div>
 
                 <div class="card-body p-lg-4 mx-lg-2 bg1-info">
-                    <form name="frmChange" method="post" action="#" onsubmit=" return changePassword()">
+                    <form name="frmChange" method="post" action="#"
+                        onsubmit=" return changePassword(newPassword.value, currentPassword.value)">
 
                         <div class="row">
                             <div class="m-1">
@@ -102,8 +109,9 @@ if (!empty($_POST['newPassword'])) {
                                         <span class="input-group-text"> <i class="fa fa-lock m-1 alert-primary"></i>
                                         </span>
                                     </div>
-                                    <input name="newPassword" id="newPassword" class="form-control" type="password"
-                                        onkeyup="validateNewPassword()" value="" placeholder=<?PHP echo "\"" . $init::NEW_PASSWORD . "\""; ?>>
+                                    <input name="newPassword" id="newPassword" class="newPassword form-control"
+                                        type="password" onkeyup="validateNewPassword(this.value)" value=""
+                                        placeholder=<?PHP echo "\"" . $init::NEW_PASSWORD . "\""; ?>>
 
                                 </div>
                                 <div class="newPasswordMsg"></div>
@@ -121,7 +129,8 @@ if (!empty($_POST['newPassword'])) {
                                         </span>
                                     </div>
                                     <input name="confirmPassword" id="confirmPassword" class="form-control"
-                                        onkeyup="validateConfirmPassword()" type="password" value="" placeholder=<?PHP echo "\"" . $init::CONFIRM_PASSWORD . "\""; ?>>
+                                        onkeyup="validateConfirmPassword(newPassword.value, this.value)" type="password"
+                                        value="" placeholder=<?PHP echo "\"" . $init::CONFIRM_PASSWORD . "\""; ?>>
 
                                 </div>
                                 <div class="confirmPasswordMsg"></div>

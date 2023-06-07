@@ -37,21 +37,31 @@ class Init
         'a_tenderList' => 'a_tenderList'
 
     ];
+    const RECOVERY_EXPIRATION_TIMEOUT = 60 * 60 * 24;
+    //const RECOVERY_EXPIRATION_TIMEOUT = 60;
+    const RECOVERY_EXPIR = 'انتهت صلاحية رابطة الاستعادة هذا';
+    const RECOVERY_NOT_VALID_TOKEN = "رابط الاستعادة غير صحيح او انه رابط سابق ";
+    const RECOVERY_ALREADY_DONE = 'تم استعادة البريد الالكتروني عبر هذا الرابط سابقا';
     const ALREADY_REGISTERED = " تم انشاء حساب لهذه الشركة مسبقا";
+    const ALREADY_HAVE_ACCOUNT = "لا يمكنك استخدام هذا الحساب هذا الحساب مسجل سابقا";
     const ACTIVATIO_EMAIL_SUBJECT = "تفعيل البريد الاكتروني";
     const RECOVERY_EMAIL_SUBJECT = "طلب تغيير كلمة المررو";
+    const REASSIGN_PASSWORD_SUBJECT = "إعادة تعيين كلمة المرور";
     const REGISTRATION_COMPLETED = "تهانينا لقد تم تسجيلك في  مصنة العطاءات التابعة للكلية الذكية للتعليم الحديث يرجى فحص البريد الاكتروني لاكمال عملية التسجيل !!";
     const ACTIVATIO_EMAIL_RESPONSE = "لقدتم ارسال رسالة الى بريدك الخاص لتفعيل الايميل يرجى فحص البريد الالكتروني لكمال عملية التسجيل ";
     const FORGOT_EMAIL_RESPONSE = "لقدتم ارسال رسالة الى بريدك الخاص لتغيير كلمة المرور يرجى فحص البريد الالكتروني لتغيير كلمة المرور   ";
-    const NOT_SENT_EMAIL = "تهانينا لقد تم تسجيلك في  مصنة العطاءات التابعة للكلية الذكية للتعليم الحديث سيتم ارسال ايميل خاص بك !!";
+    const NOT_SENT_EMAIL = "لم يتم ارسال البريد الالكتروني ";
+    const SENT_EMAIL = "تم ارسال البريد الالكتروني";
     const NOT_REGISTER_EMAIL = "هذا الايميل غير مسجل!!";
     const DONT_HAVE_ACCOUNT = "ليس لديك حساب?";
+    const ALL_FIELD_ARE_MANDATORY = "يجب ملأ جميع الحقول";
     const WELCOM_TO_LOGIN = "تفضل بالدخول";
     // const ALREAD
     const EMAIL_IS_VERIFIED = "تم تفعيل الايميل بنجاح";
     const EMAIL_IS_AlREADY_VERIFIED = "الايميل مفعل سابقا";
     const START_PAGE = "صفحة البداية";
     const WELCOM_MESSAGE = "مرحبا بك ";
+    const MESSAGE = "الرسالة";
     const ACCOUNT_STATUS = "حالة الحساب ";
     const SPACE = " ";
     const TAB = "   ";
@@ -67,7 +77,16 @@ class Init
     const TENDER_GATE_EN = "Tender Gate";
     const VENDOR_PAGE = "صفحة المزودين";
     const VENDOR_PAGE_EN = "Vendors Page";
+    const USER_DELETED = "تم حذف المستخدم";
     const USER_CREATED = "تم انشاء مسستخدم جديد";
+    const USER_NOT_CREATED = "لم يتم انشاء مسستخدم جديد";
+    const USER_NOT_DELETED = "لم يتم حذف المستخدم";
+    const UPDATED_SUCCESSFULLY = "تمت تحديث البيانات بنحاح";
+    const DOESNOT_UPDATE_SUCCESSFULLY = "لم يتم تحديث البيانات";
+    const UPDATED_PASSWORD_SUCCESSFULLY = "تمت اعادة تعيين كلمة ا لمرور  بنحاح";
+    const DOESNOT_UPDATE_PASSWORD_SUCCESSFULLY = "لم يتم اعادة تعيين  كلمة المرور بنجاح ";
+    const DONE = "تمت العملية بنحاح";
+    const DOESNOT = "لم تتم العملية بنجاح";
     const USER_NO_CREATED = "لم يتم انشاء مسستخدم جديد";
     const USER_INFORMATION_PAGE = "الصفحة الشخصية";
     const USER_INFORMATION_PAGE_EN = "User Information Page";
@@ -115,6 +134,8 @@ class Init
     const LOGGED_IN_AS_EN = "Logged in as";
     const ADD_USER = "اضافة مستخدم";
     const ADD_USER_EN = "Add User";
+    const Eidt_USER = "تعديل بيانات المستخدم";
+    const Edit_USER_EN = "ُEdit User";
     const VIEW = "عرض";
     const VIEW_EN = "View";
     const EDIT = "تحرير";
@@ -132,6 +153,7 @@ class Init
     const PASSWORD = "كلمة المرور";
     const PASSWORD_EN = "Password";
     const CHANGE_PASSWORD = "تغيير كلمة المرور !";
+    const REASSIGN_PASSWORD = "اعادة تعيين كلمة المرور";
     const PASSWORD_RECOVERY = "استعادة كلمة المرور!";
     const PASSWORD_RECOVERY_MESSAGE = "أدخل عنوان بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور الخاصة بك.";
     const RESET_PASSWPRD = "اعادة تعيين كلمة المرور";
@@ -139,9 +161,15 @@ class Init
     const CURRENT_PASSWORD = "كلمة المرور الحالية";
     const NEW_PASSWORD = "كلمة المرور الجديدة";
     const CONFIRM_PASSWORD = "تأكيد كلمة المرور";
+    const SEND_ONE_TIME_PASSWORD = "ارسال كلمة مرور عشوائية لمرة واحدة ";
+    const FOR = "ل";
+    const USER = "مستخدم";
+    const THE = "ال";
+    const FOR_USER = "للمستخدم";
     const PASSWORD_RULES = "كلمة المرور مكونة من 6 خانات  بحتي تحتوى على حروف وارقام ورموز";
     const OLD_PASSWORD_MESSAGE = "كلمة المرورة السابقة غير صحيحة";
     const PASSWORD_CHANGING_COMPLETED_SUCCSESSFULLY = "تم تغيير كلمة المرور بنجاح";
+    const PASSWORD_DOESNOT_CHANGING = "لم يتم تغيير كلمة المرور بنجاح";
 
     const ACTION = "الإجراء";
     const ACTION_EN = "ACTION";
@@ -150,6 +178,7 @@ class Init
     const SQ = "\'";
     const CERTIFICATE = "شهادة";
     const EMAIL = "البريد الاكتروني";
+    const ADMIN_EMAIL = "gnidal@gmail.com";
     const LOGIN = "تسجيل الدخول";
     const PAGE = "صفحة";
     const LOGIN_INFO = "معلومات الحساب";
@@ -168,6 +197,12 @@ class Init
     const PRIVACY_POLICY = "سياسية الخصوصية";
     const ENTER = "دخول";
     const DEVELOPER_EN = "Nidal Aljuneidi";
+    const SENDER_NAME = "Nidal Aljuneidi";
+    const RECIPIENT = "المستلم";
+    const RECIPIENTS = "المستلمون";
+    const SUBJECT = "الموضوع";
+    const MESSAGE_TEXT = "نص ا لرسالة";
+    const SENDER_EMAIL = "gnidal@gmail.com";
     const DEVELOPER = "نضال الجنيدي";
     const COPYRIGHT = "جميع الحقوق محفوظة";
 
@@ -175,13 +210,15 @@ class Init
     const ACTIVATE_EMAIL = "تفعيل الايميل ";
     const EMAIL_EN = "Email";
     const SAVE = "حفظ";
+    const AND = "و";
     const SAVE_EN = "Save";
+    const CLOSE = "اغلاق";
     const STOP_ACCOUNT_MESSAGE = "!!! تم ايقاف حساب يرجى مراجعة مسؤال النظام";
     const STOP_ACCOUNT_MESSAGE_EN = "Your Account Was Stopped Contact System Administrator !!!";
     const COMPLETE_REGESTRATION_PROCESS = "اكمال عملية التسجيل";
     const COMPLETED_REGESTRATION_PROCESS = "تهانينا لقد تمت عملية التسجيل !";
     const REGISTER = "تسجيل";
-    const THE = "ال";
+
     const COMPLETED_REGESTRATION_PROCESS_MESSAGE = "سيقوم مسؤال النظام بتفعيل حسابك بشكل كامل خلال 24 ساعة بعد التأكد من صحة البيانات";
     const THANK_YOU = "شكرا لك لانضمامك الى منصة العطاءات التابعة للكلية الذكية";
     const NEXT = "التالي";
@@ -230,7 +267,8 @@ class Init
 
     const URL = "localhost";
     const PROTOCOL = "http://";
-
+    const SIGNATURE = "التوقيع";
+    const SIGNATURE_TAG = '<p style="text-align:right"><span style="font-size:20px;dir:rtl">التوقيع</span></p>        <p style="text-align:right"><span style="font-size:24px"><img alt="" src="https://portal.scme.edu.ps/Content/images/Logo.gif" style="border-style:solid; border-width:1px; float:right; height:50px; margin:1px; width:114px" /></span></p><p>';
 
 
 
@@ -245,11 +283,32 @@ class Init
 
     private $activationMessage;
     private $recoveryMessage;
+    private $reassignPasswordMessage;
+    private $content;
     private $otp_code;
 
     function __construct()
     {
 
+    }
+    public function generateRandomPassword()
+    {
+        // Define the character sets
+        $letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $numbers = '0123456789';
+        $special = '!@#$%^&*()_+{}[]\|;:<>?/';
+
+        // Combine the character sets
+        $characters = array_merge($letters, $numbers, $special);
+
+        // Generate a random password
+        $password = '';
+        for ($i = 0; $i < 8; $i++) {
+            $password .= $characters[rand(0, count($characters) - 1)];
+        }
+
+        // echo the password
+        echo $password;
     }
     function menuItem3($link, $icon, $title, $id, )
     {
@@ -267,11 +326,16 @@ class Init
         <div class="sb-nav-link-icon"><i class="' . $icon . '"></i></div>
         ' . $title . '</a>';
     }
+
     function userAction($action, $id, $admin, $userStatus, $icon)
     {
         //onclick="btnclick(\'' . $updateFile . '\')"
-        return ' <a class="link-dark" href="#" onclick="actionclick(\'' . $action . '\',\'' . $id . '\',\'' . $admin . '\',\'' . $userStatus . '\')">
-        <i class="' . $icon . '"></i></a>';
+        return ' <button type="button" class="btn btn-link link-dark btn-sm  p-1"  onclick="actionclick(\'' . $action . '\',\'' . $id . '\',\'' . $admin . '\',\'' . $userStatus . '\')">
+        <i class="' . $icon . ' " aria-hidden="true"></i></a>';
+
+
+
+
     }
     //   <a href="#" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-1"></i></a>
     function add_attachment($member, $attachmentType, $path, $memberID)
@@ -388,9 +452,10 @@ class Init
         <p style="text-align:right"></p>
         
         <p style="text-align:right"><span style="font-size:20px;dir:rtl"><strong>لتفعيل الايميل الاكتروني يرجى الضغط على هذا البرابط <a href="http://localhost/tender_scme/?token=&lt;&lt;token&gt;&gt;">الى صفحة الكلية الذكية</a></strong></span></p></div>
-        <p style="text-align:right"><span style="font-size:24px"><img alt="" src="https://portal.scme.edu.ps/Content/images/Logo.gif" style="border-style:solid; border-width:1px; float:right; height:50px; margin:1px; width:114px" /></span></p>
-        
-        <p style="text-align:right">&nbsp;</p>';
+       
+
+        <p style="text-align:right"></p>';
+
 
         return $this->activationMessage;
     }
@@ -405,11 +470,45 @@ class Init
         <p style="text-align:right"></p>
         
         <p style="text-align:right"><span style="font-size:20px;dir:rtl"><strong>لاستعادة البريد الاكتروني يرجى الضغط على هذا الرابط <a href="http://localhost/tender_scme/?pwd=&lt;&lt;token&gt;&gt;">الى صفحة الكلية الذكية</a></strong></span></p></div>
-        <p style="text-align:right"><span style="font-size:24px"><img alt="" src="https://portal.scme.edu.ps/Content/images/Logo.gif" style="border-style:solid; border-width:1px; float:right; height:50px; margin:1px; width:114px" /></span></p>
-        
+      
+
         <p style="text-align:right">&nbsp;</p>';
 
         return $this->recoveryMessage;
+    }
+    public function reassignPasswordMessage()
+    {
+        $this->reassignPasswordMessage = '<div dir="rtl"><p style="text-align:right"><span style="font-size:22px;dir:rtl"> مرحبا بك السيد <span style="font-size:22px;dir:rtl">: </span>&lt;&lt;name&gt;&gt;</span></p>
+        <p style="text-align:right"><span style="font-size:24px;dir:rtl">رمز الحساب الخاص بك هو </span><strong><span style="font-size:20px;dir:rtl">&lt;&lt;code&gt;&gt;</span></strong></p>
+        <p style="text-align:right"><span style="font-size:24px;dir:rtl">كلمة المرور الخاصة بك </span><strong><span style="font-size:20px;dir:rtl">&lt;&lt;OTP&gt;&gt;</span></strong></p>
+
+        <p style="text-align:right"><span style="font-size:20px;dir:rtl"><strong> <a href="http://localhost/tender_scme/">الى صفحة الكلية الذكية</a></strong></span></p></div>
+        
+        
+        <p style="text-align:right"></p>
+        
+
+        <p style="text-align:right">&nbsp;</p>';
+
+        return $this->reassignPasswordMessage;
+    }
+
+    public function content()
+    {
+        $this->content = '<div dir="rtl"><p style="text-align:right"><span style="font-size:22px;dir:rtl"> مرحبا بك السيد <span style="font-size:22px;dir:rtl">: </span>&lt;&lt;name&gt;&gt;</span></p>
+        <p style="text-align:right"><span style="font-size:24px;dir:rtl">رمز الحساب الخاص بك هو </span><strong><span style="font-size:20px;dir:rtl">&lt;&lt;code&gt;&gt;</span></strong></p>
+
+        <p style="text-align:right"><span style="font-size:20px;dir:rtl">&lt;&lt;content&gt;&gt;</span></p>
+        <p style="text-align:right"><span style="font-size:20px;dir:rtl"><strong> <a href="http://localhost/tender_scme/">الى صفحة الكلية الذكية</a></strong></span></p></div>
+
+        
+        
+        <p style="text-align:right"></p>
+        
+
+        <p style="text-align:right">&nbsp;</p>';
+
+        return $this->content;
     }
     public function file_format_notSupported($file)
     {
@@ -449,24 +548,47 @@ class Init
     public function send_verification_email($email, $member_id, $username, $fname)
     {
         $token = md5($email . $member_id) . "&username=" . $username;
-        $content = $this->activationMessage();
+        $content = $this->activationMessage() . $this::SIGNATURE_TAG;
         $content = str_replace("&lt;&lt;name&gt;&gt;", $fname, $content);
         $content = str_replace("&lt;&lt;code&gt;&gt;", $username, $content);
         $content = str_replace("&lt;&lt;token&gt;&gt;", $token, $content);
-        $sent = $this->send_email(from: 'gnidal@gmail.com', from_name: "Nidal Aljuneidi", to: $email, recipient_name: $fname, subject: $this::ACTIVATIO_EMAIL_SUBJECT, content: $content);
+        $sent = $this->send_email(from: $this::ADMIN_EMAIL, from_name: $this::SENDER_NAME, to: $email, recipient_name: $fname, subject: $this::ACTIVATIO_EMAIL_SUBJECT, content: $content);
         return $sent;
 
     }
-    public function sendRecoveryEmail($email, $member_id, $username, $fname)
+    public function sendRecoveryEmail($email, $token, $username, $fname)
     {
-        $token = md5($email . $member_id) . "&username=" . $username;
-        $content = $this->recoveryMessage();
+        // $token = md5($email . $member_id) . "&username=" . $username;
+        $content = $this->recoveryMessage() . $this::SIGNATURE_TAG;
+
         $content = str_replace("&lt;&lt;name&gt;&gt;", $fname, $content);
         $content = str_replace("&lt;&lt;code&gt;&gt;", $username, $content);
         $content = str_replace("&lt;&lt;token&gt;&gt;", $token, $content);
-        $sent = $this->send_email(from: 'gnidal@gmail.com', from_name: "Nidal Aljuneidi", to: $email, recipient_name: $fname, subject: $this::RECOVERY_EMAIL_SUBJECT, content: $content);
+        $sent = $this->send_email(from: $this::ADMIN_EMAIL, from_name: $this::SENDER_NAME, to: $email, recipient_name: $fname, subject: $this::RECOVERY_EMAIL_SUBJECT, content: $content);
         return $sent;
 
+    }
+    public function sendReassignPasswordEamil($email, $member_id, $username, $fname, $OTP)
+    {
+        // $token = md5($email . $member_id) . "&username=" . $username;
+        $content = $this->reassignPasswordMessage() . $this::SIGNATURE_TAG;
+
+        $content = str_replace("&lt;&lt;name&gt;&gt;", $fname, $content);
+        $content = str_replace("&lt;&lt;code&gt;&gt;", $username, $content);
+        $content = str_replace("&lt;&lt;OTP&gt;&gt;", $OTP, $content);
+        $sent = $this->send_email(from: $this::ADMIN_EMAIL, from_name: $this::SENDER_EMAIL, to: $email, recipient_name: $fname, subject: $this::REASSIGN_PASSWORD_SUBJECT, content: $content);
+        return $sent;
+
+    }
+    public function sendEmail($email, $member_id, $username, $fname, $contentMsg, $subject)
+    {
+        $content = $this->content() . $this::SIGNATURE_TAG;
+
+        $content = str_replace("&lt;&lt;content&gt;&gt;", $contentMsg, $content);
+        $content = str_replace("&lt;&lt;name&gt;&gt;", $fname, $content);
+        $content = str_replace("&lt;&lt;code&gt;&gt;", $username, $content);
+        $sent = $this->send_email(from: $this::ADMIN_EMAIL, from_name: $this::SENDER_EMAIL, to: $email, recipient_name: $fname, subject: $subject, content: $content);
+        return $sent;
     }
 
     public function send_email(string $from, string $from_name, string $to, string $recipient_name, string $subject, string $content)
@@ -522,7 +644,15 @@ class Init
 
     }
 
+    public function getTimeDefferencet($datetime)
+    {
 
+        $requtesTime = $datetime->getTimestamp();
+        $current_time_stamp = time();
+        $timeDiff = $current_time_stamp - $requtesTime;
+        // echo $timeDiff;
+        return $timeDiff;
+    }
 
     /**
      * @return mixed

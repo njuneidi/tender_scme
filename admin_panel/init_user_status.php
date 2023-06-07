@@ -23,6 +23,7 @@ $isCompletedUser = $memberRecord[0]['user_status'] == '2' ? true : false;
 $isActiveUser = $memberRecord[0]['user_status'] == '3' ? true : false;
 $isStoppedUser = $memberRecord[0]['user_status'] == '4' ? true : false;
 $user_code = $memberRecord[0]['user_id'];
+$isOTP = $memberRecord[0]['reassign_password'] == '1' ? true : false;
 // Get User Status 
 $status = "";
 $userStatus = 1;

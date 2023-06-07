@@ -29,8 +29,8 @@ echo $init->menuItem($link, $icon, $init::DASHBOARD, 'dashboard') ?>
 
 
 <?PHP
-
-if ($isAdmin) {
+if ($isOTP) {
+} elseif ($isAdmin) {
     $link = $init::adminMenu['a_members'];
     $icon = 'fas fa-chart-area';
     echo $init->menuItem($link, $icon, $init::MEMBER_MANGEMEMT_PAGE, 'member');
@@ -48,6 +48,7 @@ if ($isAdmin) {
     echo $init->menuItem($link, $icon, $init::TENDER_LIST_PAGE, 'tlist');
 
 } elseif ($isUser) {
+
     if (!$isNewUser) {
         $link = $init::userMenu['u_userProfile'];
         $icon = 'fas fa-chart-area';

@@ -112,22 +112,29 @@ class DataSource
     public function delete($query, $paramType, $paramArray)
     {
         $stmt = $this->conn->prepare($query);
+ 
+        $this->bindQueryParams($stmt, $paramType, $paramArray);
+
+        return $stmt->execute();
+
+    }
+    public function call($query, $paramType, $paramArray)
+    {
+        $stmt = $this->conn->prepare($query);
         //  echo $stmt;
         $this->bindQueryParams($stmt, $paramType, $paramArray);
 
         return $stmt->execute();
-        // $insertId = $stmt->insert_id;
-        // return $insertId;
+
     }
     public function update($query, $paramType, $paramArray)
     {
         $stmt = $this->conn->prepare($query);
         $this->bindQueryParams($stmt, $paramType, $paramArray);
-        // echo $query;
-        //  $this->bindQueryParams($stmt, $paramType, $paramArray);
+      
 
-        $stmt->execute();
-        //echo 'hi';
+        return $stmt->execute();
+      
     }
 
     /**

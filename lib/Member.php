@@ -35,6 +35,55 @@ class Member
     // public set_user_active($id,$status){
     //     $query = 'update user set user_status = '.$status. ' where user_id = '.$id;
     // }
+    public function updateUser($user)
+    {
+        $query = 'UPDATE user u INNER JOIN member m on u.user_id = m.user_id
+         set u.username = IFNULL(?,(u.username)),
+         u.user_type = IFNULL(?,(u.user_type)), 
+         u.user_status = IFNULL(?,(u.user_status)),
+         u.recovery_request_time = IFNULL(?,(u.recovery_request_time)),
+         u.recovery_request = IFNULL(?,(u.recovery_request)),
+         m.activation_link = IFNULL(?,(m.activation_link)),
+         m.name = IFNULL(?,(m.name)),
+         m.licence_id = IFNULL(?,(m.licence_id)),
+         m.email = IFNULL(?,(m.email)),
+         m.phone_no = IFNULL(?,(m.phone_no)),
+         m.mobile_no = IFNULL(?,(m.mobile_no)),
+         m.city = IFNULL(?,(m.city)),
+         m.address = IFNULL(?,(m.address)),
+         m.company_name = IFNULL(?,(m.company_name))
+         where u.user_id = ?';
+
+        $paramType = "sssssssssssssss";
+        $paramValue = array(
+
+            $user['username'],
+            isset($user['user_type']) ? $user['user_type'] : NULL,
+            isset($user['user_status']) ? $user['user_status'] : NULL,
+            isset($user['recovery_request_time']) ? $user['recovery_request_time'] : NULL,
+            isset($user['recovery_request']) ? $user['recovery_request'] : NULL,
+            isset($user['activation_link']) ? $user['activation_link'] : NULL,
+            isset($user['name']) ? $user['name'] : NULL,
+            isset($user['licence_id']) ? $user['licence_id'] : NULL,
+            isset($user['email']) ? $user['email'] : NULL,
+            isset($user['phone']) ? $user['phone'] : NULL,
+            isset($user['mobile_no']) ? $user['mobile_no'] : NULL,
+            isset($user['city']) ? $user['city'] : NULL,
+            isset($user['address']) ? $user['address'] : NULL,
+            isset($user['company_name']) ? $user['company_name'] : NULL,
+            $user['user_id'],
+
+
+
+
+
+        );
+
+        //$this->ds->update($query);
+        return $this->ds->update($query, $paramType, $paramValue);
+
+    }
+
     public function getAllUsers()
     {
         $query = 'SELECT member.*, user.*
@@ -51,11 +100,22 @@ class Member
         return $allUsers;
 
     }
+    public function deletUserByCallFunction($userID)
+    {
+        $query = 'CALL deleteUserByCallFunction( ? )';
+        $paramType = 's';
+        $paramValue = array(
+
+            $userID,
+        );
+        return $this->ds->call($query, $paramType, $paramValue);
+
+    }
     public function deleteUser($userID)
     {
         $query = 'delete from user where user_id = ?';
         // $query = 'Delete FROM attachment where member_id = ? and attachment_type = ?';
-        echo $query;
+        //echo $query;
         $paramType = 's';
         $paramValue = array(
 
@@ -67,7 +127,7 @@ class Member
     {
         $query = 'delete from member where user_id = ?';
         // $query = 'Delete FROM attachment where member_id = ? and attachment_type = ?';
-        echo $query;
+        // echo $query;
         $paramType = 's';
         $paramValue = array(
 
@@ -194,6 +254,34 @@ class Member
         $memberRecord = $this->ds->select($query, $paramType, $paramValue);
         return $memberRecord;
     }
+    public function getUserByUserID($userId)
+    {
+        $query = 'SELECT member.*, user.*
+        FROM tender.`member` member, tender.`user` user
+        WHERE 
+            member.user_id = user.user_id and user.user_id = ?';
+        $paramType = 's';
+        $paramValue = array(
+            $userId
+
+        );
+        $memberRecord = $this->ds->select($query, $paramType, $paramValue);
+        return $memberRecord;
+    }
+    public function getUserByUserToken($token)
+    {
+        $query = 'SELECT member.*, user.*
+        FROM tender.`member` member, tender.`user` user
+        WHERE 
+            member.user_id = user.user_id and member.activation_link = ?';
+        $paramType = 's';
+        $paramValue = array(
+            $token
+
+        );
+        $memberRecord = $this->ds->select($query, $paramType, $paramValue);
+        return $memberRecord;
+    }
     public function getMember($member_id)
     {
         $query = 'SELECT * FROM member where member_id = ?';
@@ -283,19 +371,20 @@ class Member
         return $this->ds->update($query, $paramType, $paramValue);
 
     }
-    public function updatePassword($userID, $password)
+    public function updatePassword($userID, $password, $reassignPassword = 0, $recovery_request = 0)
     {
-        $query = 'UPDATE tender.`user` SET `password`=?, update_password_time= current_timestamp() WHERE user_id= ?';
+        $query = 'UPDATE tender.`user` SET `password`=?,  reassign_password=? , recovery_request=?, update_password_time= current_timestamp() WHERE user_id= ?';
 
-        $paramType = "ss";
+        $paramType = "ssss";
         $paramValue = array(
 
             is_null($password) ? "" : password_hash($password, PASSWORD_DEFAULT),
+            $reassignPassword,
+            $recovery_request,
             is_null($userID) ? "" : $userID,
 
         );
 
-        //$this->ds->update($query);
         return $this->ds->update($query, $paramType, $paramValue);
 
     }
@@ -333,7 +422,7 @@ class Member
             date("Y-m-d H:i:s"),
         );
         $user_id = $this->ds->insert($query, $paramType, $paramValue);
-    
+
         $query = 'INSERT INTO tender.`member`(`name`,  `licence_id`, `email`, `phone_no`, `mobile_no`, `city`, `address`, `user_id`, `company_name` )VALUES (?,?,?,?,?,?,?,?,?)';
         $paramType = 'sssssssss';
         $paramValue = array(
@@ -348,7 +437,7 @@ class Member
             !isset($member['company_name']) ? "" : $member['company_name'],
 
         );
-       
+
         return $this->ds->insert($query, $paramType, $paramValue);
 
 

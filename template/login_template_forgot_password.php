@@ -24,7 +24,7 @@ $init = new Init();
                                 <div class="small mb-3 text-muted">
                                     <?PHP echo $init::PASSWORD_RECOVERY_MESSAGE ?>
                                 </div>
-                                <form name="fp" action="" method="post" class="m-1 ">
+                                <form name="fp" action="../index.php" method="post" class="m-1 ">
                                     <div class=" form-floating mb-3">
                                         <input class="form-control" id="inputEmail" name="inputEmail" type="email"
                                             required placeholder="name@example.com" />
@@ -33,7 +33,7 @@ $init = new Init();
                                         </label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <a class="small" href="index.php">
+                                        <a class="small" href="../">
                                             <?PHP echo $init::RETRURN_TO_LOGIN_PAGE ?>
                                         </a>
                                         <!-- <a class="btn btn-primary" href="#"
@@ -52,7 +52,7 @@ $init = new Init();
                                 <div class="d-flex justify-content-center">
                                     <div class="text-primary small">
                                         <?PHP $init::DONT_HAVE_ACCOUNT ?>
-                                        <a href="#" id="sign_up" onclick="signup('template/login-template44.php')">
+                                        <a href="../signup/index.php" id="sign_up" onclick1="signup('template/login-template44.php')">
                                             <?PHP echo $init::REGISTER ?>
                                         </a>
                                     </div>
