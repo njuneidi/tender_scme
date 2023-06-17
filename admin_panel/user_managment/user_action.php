@@ -62,7 +62,7 @@ if (isset($_POST['action'])) {
 
                 $res = [
                     'status' => 0,
-                    'message' => $init::USER_DELETED,
+                    'message' => $init::USER_DELETED . $id,
                     'data' => $memberDeleted
                 ] :
 

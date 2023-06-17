@@ -109,10 +109,22 @@ class DataSource
         $insertId = $stmt->insert_id;
         return $insertId;
     }
+    public function startTransaction()
+    {
+
+        $stmt = $this->conn->prepare('START TRANSACTION');
+        return $stmt->execute();
+    }
+    public function commit()
+    {
+        $stmt = $this->conn->prepare('commit');
+        return $stmt->execute();
+
+    }
     public function delete($query, $paramType, $paramArray)
     {
         $stmt = $this->conn->prepare($query);
- 
+
         $this->bindQueryParams($stmt, $paramType, $paramArray);
 
         return $stmt->execute();
@@ -131,10 +143,10 @@ class DataSource
     {
         $stmt = $this->conn->prepare($query);
         $this->bindQueryParams($stmt, $paramType, $paramArray);
-      
+
 
         return $stmt->execute();
-      
+
     }
 
     /**

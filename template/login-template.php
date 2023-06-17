@@ -1,4 +1,4 @@
-<!-- <div class="sidenav">
+<div class="sidenav">
 	<div class="card  text-white text-center m-5 bg-primary  p-3">
 		<img class="card-img-top width " src="assets/images/logo.png" alt="logo">
 
@@ -10,7 +10,7 @@
 			<?PHP echo $init::LOGIN_MSG ?>
 		</p>
 	</div>
-</div> -->
+</div>
 <div class="main">
 	<div class="d-flex flex-column justify-content-center align-items-center  ">
 

@@ -19,6 +19,10 @@ MATCH_PASSWORD = "كلمة المرور غير متطابقة ";
 PASSWORD_UPDATED_SUCCSESSFULL = "تم تغيير كلمة المرور بنجاح";
 const MOBILE_NO_SHOULD_BE_10_Digits = "رقم الموبايل يجب ان يكون مكون من 10 خانات";
 const ALERTIFIER_TIME = 1;
+const ADD_YOUR_ANSWER = "أضف اجابتك";
+const ADD_QUESTION = "أضف سؤال";
+const EDIT_QUESTION = "تعديل سؤال";
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
@@ -36,6 +40,74 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+function addAnswer(value = '') {
+    const questionAnswerContainer = document.getElementById("answerContainer");
+
+    answerNo = document.getElementById('answer_no').value;
+    answerNo = parseInt(answerNo, 10) + 1;
+    //$('#answer_no').val(answerNo);
+    const questionAnswer = document.createElement("input");
+    questionAnswer.type = "text";
+    questionAnswer.name = "answers[]";
+    questionAnswer.id = "questionAnswer" + answerNo;
+    questionAnswer.value = value;
+    questionAnswer.className = "form-control";
+    questionAnswer.placeholder = ADD_YOUR_ANSWER;
+    ;
+    answerDiv = document.createElement("div");
+    answerDiv.className = "col-md-10";
+    answerDiv.appendChild(questionAnswer);
+
+
+
+    const removeAnswerIcon = document.createElement('i');
+    removeAnswerIcon.classList.add('fa', 'fa-trash');
+    removeAnswerIcon.classList.add('btn', 'btn-link');
+    iconDiv = document.createElement("div");
+    iconDiv.className = "col-md-2";
+    // icondiv.id = "icon-trash";
+    iconDiv.appendChild(removeAnswerIcon);
+    iconDiv.addEventListener('click', deleteAnswer);
+
+    rowAnswer = document.createElement('div');
+    rowAnswer.id = "rowAnswer" + answerNo;
+    rowAnswer.className = "row";
+    rowAnswer.appendChild(answerDiv);
+    rowAnswer.appendChild(iconDiv);
+
+    questionAnswerContainer.appendChild(rowAnswer);
+
+    $('#answer_no').val(answerNo);
+
+
+}
+function deleteAnswer() {
+    questionAnswerContainer = document.getElementById('answerContainer');
+    var row = event.target.parentElement;
+    alert(row.className);
+    row = row.parentElement;
+    alert(row.className);
+    row = row.parentElement;
+    alert(row.className);
+    questionAnswerContainer.removeChild(row);
+    // alert(row );
+    // row = row.parentElement;
+    // alert(row );
+
+    // // Remove the row from the answer container
+    // questionAnswerContainer.removeChild(row);
+    // alert(answerNo);
+    // div = document.getElementById('rowAnswer' + answerNo);
+    // //questionAnswerContainer.removeChild("rowAnswer1");
+    // // Remove the div from the DOM
+    // div.parentNode.removeChild(div);
+    // answerNo = parseInt(answerNo, 10) - 1;
+    // // $('#answer_no').val(answerNo);
+    // $('#answer_no').val(answerNo);
+
+
+}
 
 
 

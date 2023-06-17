@@ -30,7 +30,7 @@
                 <?PHP
                 break;
             case $init::adminMenu['a_questions']:
-                require_once('question_bank/questions_list_view.php');
+                require_once('question_bank/index.php');
                 break;
             case $init::adminMenu['a_tenders']:
                 # code...

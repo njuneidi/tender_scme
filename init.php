@@ -37,6 +37,7 @@ class Init
         'a_tenderList' => 'a_tenderList'
 
     ];
+
     const RECOVERY_EXPIRATION_TIMEOUT = 60 * 60 * 24;
     //const RECOVERY_EXPIRATION_TIMEOUT = 60;
     const RECOVERY_EXPIR = 'انتهت صلاحية رابطة الاستعادة هذا';
@@ -85,9 +86,21 @@ class Init
     const DOESNOT_UPDATE_SUCCESSFULLY = "لم يتم تحديث البيانات";
     const UPDATED_PASSWORD_SUCCESSFULLY = "تمت اعادة تعيين كلمة ا لمرور  بنحاح";
     const DOESNOT_UPDATE_PASSWORD_SUCCESSFULLY = "لم يتم اعادة تعيين  كلمة المرور بنجاح ";
+    const ADDED_SUCCESSFULLY = "تمت الاضافة بنجاح";
+    const DOESNOT_ADDED_SUCCESSFULLY = "لم تتم الاضافة بنجاح";
+    const DELETED_SUCCESSFULLY = "تم الحذف بنجاح";
+    const DOESNOT_DELETED_SUCCESSFULLY = "لم يتم الحذف بنجاح";
+    const DOESNOT_EXISTS = "هذا العنصر غير متوفر";
     const DONE = "تمت العملية بنحاح";
     const DOESNOT = "لم تتم العملية بنجاح";
     const USER_NO_CREATED = "لم يتم انشاء مسستخدم جديد";
+    const QUESTION = "سؤال";
+    const PREVIEW = "معاينة ";
+    const NOT_COMPLETED = "لم تتم";
+    const DOESNOT_COMPLETED = "لم يتم";
+    const COMPLETED = "تمت";
+    const OPERATION = "العملية";
+    const SUCCESSFULLY = "بنجاح";
     const USER_INFORMATION_PAGE = "الصفحة الشخصية";
     const USER_INFORMATION_PAGE_EN = "User Information Page";
     const DASHBOARD = "لوحة المعلومات";
@@ -104,6 +117,7 @@ class Init
     const TENDER_LIST_PAGE_EN = "Tender List Page";
     const QUESTION_BANK_MANGEMEMT_PAGE = " ادارة بنك الاسئلة";
     const QUESTION_BANK_MANGEMEMT_PAGE_EN = "Question Bank Managment Page";
+    const QUESTION_BANK = "بنك الاسئلة";
     const APPLY_FOR_TENDER_PAGE = "الاشتراك في العطاء";
     const APPLY_FOR_TENDER_PAGE_EN = "";
     const CONTROL_PANEL = "لوحة التحكم";
@@ -135,6 +149,10 @@ class Init
     const ADD_USER = "اضافة مستخدم";
     const ADD_USER_EN = "Add User";
     const Eidt_USER = "تعديل بيانات المستخدم";
+    const ADD_QUESTION = "اضافة سؤال";
+    const EDIT_QUESTION = "تعديل السؤال";
+    const ADD_ANSWER = "اضافة اجابة";
+    const EDIT_ANSWER = "تعديل اجابة";
     const Edit_USER_EN = "ُEdit User";
     const VIEW = "عرض";
     const VIEW_EN = "View";
@@ -261,6 +279,10 @@ class Init
     const VALID_EXTENSIONS = array('jpeg', 'jpg', 'png', 'gif', 'bmp', 'pdf', 'doc', 'ppt');
     const UPLOAD_PATH = 'uploads/';
     const DOT = ".";
+    const YESANSWER = 'نعم';
+    const NOANSWER = 'لا';
+    const TRUEANSWER = 'صحيح';
+    const FALSEANSWER = 'خطأ';
 
     const CONFIRM = "تأكيد";
     const RESEND = "اعادة ارسال ";
@@ -294,9 +316,9 @@ class Init
     public function generateRandomPassword()
     {
         // Define the character sets
-        $letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $numbers = '0123456789';
-        $special = '!@#$%^&*()_+{}[]\|;:<>?/';
+        $letters = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+        $numbers = ['0123456789'];
+        $special = ['!@#$%^&*()_+{}[]\|;:<>?/'];
 
         // Combine the character sets
         $characters = array_merge($letters, $numbers, $special);
@@ -635,9 +657,9 @@ class Init
     }
     public function print_butiful_array($array)
     {
-        print("<pre>");
+        echo "<pre>";
         print_r($array);
-        print("</pre>");
+        echo "</pre>";
 
 
 
@@ -670,6 +692,119 @@ class Init
     {
         $this->otp_code = rand(100000, 999999);
         return $this;
+    }
+    public function getShortQuestion($id)
+    {
+
+        return '<div class="row">
+        <div class="col-md-12 mb-1">
+          <div class="form-group input-group ">
+
+          
+
+            <input required name="answer' . $id . '" id="answer' . $id . '" class="form-control" 
+              placeholder= "" type="text">
+
+
+          </div>
+        </div>
+      </div>';
+
+
+    }
+    public function getEssayQuestion($id)
+    {
+
+        return '<div class="row">
+        <div class="col-md-12 mb-1">
+          <div class="form-group">
+
+          
+
+              <label for="answer' . $id . '">Comments</label>
+                <textarea class="form-control rounded-2" id="answer' . $id . '" name="answer' . $id . '" rows="3" placeholder="Write your comments here..."></textarea>
+        
+
+
+          </div>
+        </div>
+      </div>';
+
+
+    }
+    public function getOddQuestion($id, $radio1, $radio2)
+    {
+
+        return '<div class="row">
+    <div class="col-md-12 mb-1">
+        <div class="form-group">
+            <input type="radio" name="question' . $id . '" id="true" value="' . $radio1 . '" class="form-check-input">
+            <label class="form-check-label" for="true">' . $radio1 . '</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" name="question' . $id . '" id="false" value="' . $radio2 . '" class="form-check-input">
+            <label class="form-check-label" for="false">' . $radio2 . '</label>
+        </div>
+    </div>
+</div>';
+
+
+    }
+    public function getMulipleQuestion($id, $answers, $multiple = false)
+    {
+        $answerArray = json_decode($answers);
+        $answer = '';
+        $type = $multiple ? 'checkbox' : 'radio';
+
+        foreach ($answerArray as $key => $value) {
+            $answer .= '<div class="form-group">
+           <input type="' . $type . '" name="question[]" id="answer' . $id . '_' . $key . '" value="' . $value . '" class="form-check-input form-check-inline">
+           <label class="form-check-label" for="answer' . $id . '_' . $key . '">' . $value . '</label>
+         </div>';
+        }
+        $questionPreview = '<div class="row">
+        <div class="col-md-12 mb-1">
+        ' . $answer . '     
+          
+        </div>
+      </div>';
+        return $questionPreview;
+
+
+    }
+    //Question Bank Related Methods
+    public function getQuestionPreview($id, $questionTitle, $questionType, $questionTypeCode, $questionAnswers)
+    {
+
+        $question = '<h5>' . $questionTitle . '<span dir="rtl"> ؟</span>' . '</h5>';
+        switch ($questionTypeCode->question_type_code) {
+            case 'Short'; // short answer
+                $question .= $this->getShortQuestion($id);
+                break;
+            case 'T/F'; //muliple choice
+                $question .= $this->getOddQuestion($id, $this::TRUEANSWER, $this::FALSEANSWER);
+                break;
+            case 'Y/N'; // True false
+                $question .= $this->getOddQuestion($id, $this::YESANSWER, $this::NOANSWER);
+                break;
+            case 'MC'; // True false
+                $question .= $this->getMulipleQuestion($id, $questionAnswers);
+                break;
+            case 'MS'; // True false
+                $question .= $this->getMulipleQuestion($id, $questionAnswers, true);
+                break;
+            case 'Essay'; // True false
+                $question .= '<textarea name="answer" id="answer" rows="5" cols="50"></textarea>';
+                break;
+            default;
+                $question .= '<input type="text" name="answer' . $id . '" id="answer' . $id . '">';
+
+
+        }
+        // $question .= '<input type="submit" value="Submit">';
+        //$question = htmlspecialchars($question, ENT_QUOTES);
+        return $question;
+
     }
 }
 

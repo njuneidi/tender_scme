@@ -508,7 +508,7 @@ class Member
         if (!empty($memberRecord)) {
             if (!empty($_POST["password"])) {
                 $password = $_POST["password"];
-                print($password);
+                //  print($password);
             }
             $hashedPassword = $memberRecord[0]["password"];
             // print("password " . $password);
