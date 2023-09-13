@@ -19,25 +19,62 @@ class Init
     //require_once
     private $lang = "ar";
     const VERSION = 1;
+    const menueItems = [
+        'dashboard' => 'dashboard',
+        'profile' => 'profile',
+        'attachments' => 'attachments',
+        'tenders-list' => 'tenders-list',
+        'my-tenders' => 'my-tenders',
+        'members' => 'members',
+        'users' => 'users',
+        'questions' => 'questions',
+        'tenders' => 'tenders',
+        'applied-tenders-comparison' => 'applied-tenders-comparison'
+
+
+    ];
     const userMenu = [
-        'u_dashboard' => 'u_dashboard',
-        'u_userProfile' => 'u_userProfile',
-        'u_users' => 'u_users',
+        'u-dashboard' => 'u-dashboard',
+        'profile' => 'profile',
+        // 'u_users' => 'u_users',
         'u_attachments' => 'u_attachments',
-        'u_tenders' => 'u_tenders',
-        'u_mytenders' => 'u_mytenders'
+        'tenders-list' => 'tenders-list',
+        'my-tenders' => 'my-tenders'
 
     ];
     const adminMenu = [
-        'a_dashboard' => 'a_dashboard',
+        'a-dashboard' => 'a-dashboard',
+        'profile' => 'profile',
         'a_members' => 'a_members',
         'a_users' => 'a_users',
         'a_questions' => 'a_questions',
-        'a_tenders' => 'a_tenders',
-        'a_tenderList' => 'a_tenderList'
+        'tenders' => 'tenders',
+        'tenders-list' => 'tenders-list',
+        'applied-tenders-comparison' => 'applied-tenders-comparison',
 
     ];
+    // var $addQuestionToBankinModal = 0;
 
+
+
+    const YOU_CANT_DELETE = "لا تستطيع الحذف";
+    const YOU_CANT_EDIT = "لا تستطيع التحرير";
+    const QUESTION = "سؤال";
+    const THE_QUESTION = "السؤال";
+    const ALREADY_IN_USE = "قيد الاسستخدام";
+    const ADD_TENDER = "إضافة عطاء";
+    const AT_LEAST_ONE_ANSWER = "يجب ان يكون هناحك اجابة واحدة على الاقل ";
+    const EDIT_TENDER = "تعديل العطاء";
+    const VIEW_TENDER = "معاينة العطاء";
+    const DELETE_TENDER = "حذف العطاء";
+    const TITLE = "العنوان";
+    const DESCRIPTION = "الوصف";
+    const DETAILS = "التفاصيل";
+    const DUEDATE = "آخر موعد للتسليم";
+    const START_DATE = "تاريخ البدء";
+    const PUBLISH_DATE = "تاريخ النشر";
+    const CANCEL = "إلغاء";
+    const SELECT_ALL = "تحديد الكل";
     const RECOVERY_EXPIRATION_TIMEOUT = 60 * 60 * 24;
     //const RECOVERY_EXPIRATION_TIMEOUT = 60;
     const RECOVERY_EXPIR = 'انتهت صلاحية رابطة الاستعادة هذا';
@@ -45,6 +82,7 @@ class Init
     const RECOVERY_ALREADY_DONE = 'تم استعادة البريد الالكتروني عبر هذا الرابط سابقا';
     const ALREADY_REGISTERED = " تم انشاء حساب لهذه الشركة مسبقا";
     const ALREADY_HAVE_ACCOUNT = "لا يمكنك استخدام هذا الحساب هذا الحساب مسجل سابقا";
+    const ALREADY_APPLIED = "تم التقديم للعطاء";
     const ACTIVATIO_EMAIL_SUBJECT = "تفعيل البريد الاكتروني";
     const RECOVERY_EMAIL_SUBJECT = "طلب تغيير كلمة المررو";
     const REASSIGN_PASSWORD_SUBJECT = "إعادة تعيين كلمة المرور";
@@ -94,7 +132,9 @@ class Init
     const DONE = "تمت العملية بنحاح";
     const DOESNOT = "لم تتم العملية بنجاح";
     const USER_NO_CREATED = "لم يتم انشاء مسستخدم جديد";
-    const QUESTION = "سؤال";
+
+    const QUESTION_TYPE = "نوع السؤال";
+    const QUESTION_PREVIEW = "معاينة السؤال";
     const PREVIEW = "معاينة ";
     const NOT_COMPLETED = "لم تتم";
     const DOESNOT_COMPLETED = "لم يتم";
@@ -107,6 +147,7 @@ class Init
     const DASHBOARD_EN = "Dashboard";
     const USER_MANGEMEMT_PAGE = " ادارة المستخدمين";
     const MEMBER_MANGEMEMT_PAGE = " ادارة الاعضاء";
+    const SUPPLIER_MANGEMEMT_PAGE = " ادارة الموردين";
     const USER_MANGEMEMT_PAGE_EN = "User Managment Page";
     const OPERATION_MANGEMEMT = " ادارة العمليات";
     const OPERATION_MANGEMEMT_EN = "Operation Managment";
@@ -119,6 +160,7 @@ class Init
     const QUESTION_BANK_MANGEMEMT_PAGE_EN = "Question Bank Managment Page";
     const QUESTION_BANK = "بنك الاسئلة";
     const APPLY_FOR_TENDER_PAGE = "الاشتراك في العطاء";
+    const APPLY_FOR_TENDER = "التقديم للعطاء";
     const APPLY_FOR_TENDER_PAGE_EN = "";
     const CONTROL_PANEL = "لوحة التحكم";
     const CONTROL_PANEL_EN = "Control Panel";
@@ -136,6 +178,7 @@ class Init
     const TABLES_EN = "Tables";
     const PAGES = "الصفحات";
     const PAGES_EN = "Pages";
+    const THE_TENDER = "العطاء";
     const TENDERS = "العطاءات";
     const TENDERS_EN = "Tenders ";
     const MY_TENDERS = "عطاءاتي";
@@ -150,6 +193,7 @@ class Init
     const ADD_USER_EN = "Add User";
     const Eidt_USER = "تعديل بيانات المستخدم";
     const ADD_QUESTION = "اضافة سؤال";
+    const ADD_TO_TENDER = "اضافة للعطاء";
     const EDIT_QUESTION = "تعديل السؤال";
     const ADD_ANSWER = "اضافة اجابة";
     const EDIT_ANSWER = "تعديل اجابة";
@@ -286,11 +330,30 @@ class Init
 
     const CONFIRM = "تأكيد";
     const RESEND = "اعادة ارسال ";
+    const PINNED = "تثبيت";
+    const POST = "نشر";
 
     const URL = "localhost";
     const PROTOCOL = "http://";
     const SIGNATURE = "التوقيع";
     const SIGNATURE_TAG = '<p style="text-align:right"><span style="font-size:20px;dir:rtl">التوقيع</span></p>        <p style="text-align:right"><span style="font-size:24px"><img alt="" src="https://portal.scme.edu.ps/Content/images/Logo.gif" style="border-style:solid; border-width:1px; float:right; height:50px; margin:1px; width:114px" /></span></p><p>';
+    const error_Message = '<div id="errorMessage" class="alert alert-warning d-none"></div>';
+    const error_Message_tender = '<div id="errorMessageTender" class="alert alert-warning d-none"></div>';
+    const error_Message_edit_tender = '<div id="errorMessageEditTender" class="alert alert-warning d-none"></div>';
+    const error_Message_apply_tender = '<div id="errorMessageApplyTender" class="alert alert-warning d-none"></div>';
+    const error_Message_add_tender = '<div id="errorMessageAddTender" class="alert alert-warning d-none"></div>';
+
+    public function getStatusMessage($status, $message, $other = [])
+    {
+
+        $res = [
+            'status' => $status,
+            'message' => $message
+            // $other
+
+        ];
+        return $res;
+    }
 
 
 
@@ -311,6 +374,56 @@ class Init
 
     function __construct()
     {
+
+    }
+    public function getTenderQuestionshtml($model, $tenderModel, $tenderId)
+    {
+
+        // echo $tenderId;
+        $tender_questions = $tenderModel->getTenderQuestions($tenderId);
+        // $this->print_butiful_array($tender_questions);
+        $questonBannkArray = [];
+        foreach ($tender_questions as $question) {
+            $questionPreview = $model->getQuestionById($question['question_bank_id'])->question_preview;
+            // array_push($questonBannkArray, $question['question_bank_id']);
+            $questonBannkArray[] = $question['question_bank_id'];
+            // $this->print_butiful_array($questonBannkArray);
+            ?>
+            <div class="movable-div<?php echo $question['question_bank_id']; ?>">
+
+                <div class="card rounded-3 text-black mt-2 p-1" style="background-color: rgb(240, 248, 255);">
+
+                    <div class="card-header" style="background-color:#E3E3E3">
+                        <button type="button" value="<?PHP echo $tenderId . "-" . $question['question_bank_id'] ?>"
+                            class="remove-tender-question<?php echo $question['question_bank_id']; ?> btn btn-danger ">
+                            <i class="fas fa-times-circle fa-2x"></i>
+                        </button>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="col-lg-12">
+                            <div class="card-body p-lg-4 mx-lg-2">
+                                <!-- padding for md is 7 marging left right for md 4 -->
+                                <div class="row d-flex justify-content-center align-items-center h-100">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-1">
+                                            <?php echo $questionPreview; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?PHP
+            // $init->print_butiful_array($questionPreview);
+            // echo "<p>" . $question['question_bank_id'] . "</p>";
+        }
+        echo '<input type="hidden" name="" id="bank-question-ids' . $tenderId . '" value="' . implode(",", $questonBannkArray) . '">';
+
+
+
 
     }
     public function generateRandomPassword()
@@ -698,7 +811,11 @@ class Init
 
         return '<div class="row">
         <div class="col-md-12 mb-1">
-          <div class="form-group input-group ">
+          <div class=" form-control" style="border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 8px 12px;
+          font-size: 16px;
+          width: 100%;">
 
           
 
@@ -722,7 +839,7 @@ class Init
           
 
               <label for="answer' . $id . '">Comments</label>
-                <textarea class="form-control rounded-2" id="answer' . $id . '" name="answer' . $id . '" rows="3" placeholder="Write your comments here..."></textarea>
+                <textarea required class="form-control rounded-2" id="answer' . $id . '" name="answer' . $id . '" rows="3" placeholder="Write your comments here..."></textarea>
         
 
 
@@ -738,11 +855,11 @@ class Init
         return '<div class="row">
     <div class="col-md-12 mb-1">
         <div class="form-group">
-            <input type="radio" name="question' . $id . '" id="true" value="' . $radio1 . '" class="form-check-input">
+            <input required type="radio" name="answer' . $id . '" id="true" value="' . $radio1 . '" class="form-check-input">
             <label class="form-check-label" for="true">' . $radio1 . '</label>
         </div>
         <div class="form-group">
-            <input type="radio" name="question' . $id . '" id="false" value="' . $radio2 . '" class="form-check-input">
+            <input required type="radio" name="answer' . $id . '" id="false" value="' . $radio2 . '" class="form-check-input">
             <label class="form-check-label" for="false">' . $radio2 . '</label>
         </div>
     </div>
@@ -758,10 +875,11 @@ class Init
 
         foreach ($answerArray as $key => $value) {
             $answer .= '<div class="form-group">
-           <input type="' . $type . '" name="question[]" id="answer' . $id . '_' . $key . '" value="' . $value . '" class="form-check-input form-check-inline">
+           <input type="' . $type . '" name="answer' . $id . '[]" id="answer' . $id . '_' . $key . '" value="' . $value . '" class="form-check-input form-check-inline">
            <label class="form-check-label" for="answer' . $id . '_' . $key . '">' . $value . '</label>
          </div>';
         }
+        // str_replace('question[]', 'question[' . $id . ']', $answer);
         $questionPreview = '<div class="row">
         <div class="col-md-12 mb-1">
         ' . $answer . '     
@@ -776,6 +894,7 @@ class Init
     public function getQuestionPreview($id, $questionTitle, $questionType, $questionTypeCode, $questionAnswers)
     {
 
+        //print_r($questionAnswers);
         $question = '<h5>' . $questionTitle . '<span dir="rtl"> ؟</span>' . '</h5>';
         switch ($questionTypeCode->question_type_code) {
             case 'Short'; // short answer
@@ -805,6 +924,17 @@ class Init
         //$question = htmlspecialchars($question, ENT_QUOTES);
         return $question;
 
+    }
+    public function checkNullEntries(array $data)
+    {
+        foreach ($data as $key => $entry) {
+            // if ($entry == )
+            if ($key != 'tender_id') {
+                if ($entry === null or empty($entry)) {
+                    return true;
+                }
+            }
+        }
     }
 }
 

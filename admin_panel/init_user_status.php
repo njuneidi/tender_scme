@@ -12,6 +12,7 @@ $member = new Member();
 $memberInfo = null;
 $init = new Init();
 $username = $_SESSION['user']['0']['username'];
+define('SESSION_USER_ID', $_SESSION['user'][0]['user_id']);
 $memberRecord = $member->getUser($username);
 
 

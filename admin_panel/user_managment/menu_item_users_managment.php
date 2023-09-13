@@ -123,8 +123,11 @@ require_once 'send_email_user_modal.php';
             <tbody>
                 <?php
                 foreach ($allUsers as $key => $value) {
+                    
                     $id = $allUsers[$key]["user_id"];
+                    
                     $admin = true;
+                    if($_GET)
                     ?>
                     <tr>
                         <td>

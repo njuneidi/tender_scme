@@ -13,8 +13,8 @@ $init = new Init();
 $member = new Member();
 $verifiedEmail = 0;
 $recoveredEmail = '';
-//$init->print_butiful_array($_POST);
-
+// $init->print_butiful_array($_SESSION);
+// $sessionUserID = $_SESSION['user'][0]['user_id'];
 //echo $_POST['forgot-btn'];
 
 // after verify email
@@ -161,6 +161,10 @@ if (isset($_GET['recover'])) {
     <script defer src="assets/js/jquery-3.6.4.js"></script>
     <script defer src="assets/js/scripts.js"></script>
     <script defer src="assets/js/javascript.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> -->
+    <!-- <script defer src="assets/js/ckeditor.js"></script> -->
+    <!-- <script src="assets/ckeditor/ckeditor.js"></script> -->
+
 
 </body>
 

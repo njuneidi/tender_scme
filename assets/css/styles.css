@@ -6113,6 +6113,7 @@ fieldset:disabled .btn {
   --bs-modal-margin: 0.5rem;
   --bs-modal-color: ;
   --bs-modal-bg: #fff;
+  /* --bs-modal-bg: #F8FAFD; */
   --bs-modal-border-color: var(--bs-border-color-translucent);
   --bs-modal-border-width: 1px;
   --bs-modal-border-radius: 0.5rem;
@@ -6123,9 +6124,12 @@ fieldset:disabled .btn {
   --bs-modal-header-padding: 1rem 1rem;
   --bs-modal-header-border-color: var(--bs-border-color);
   --bs-modal-header-border-width: 1px;
+  --bs-modal-header-bg: #E3E3E3;
   --bs-modal-title-line-height: 1.5;
   --bs-modal-footer-gap: 0.5rem;
-  --bs-modal-footer-bg: ;
+  --bs-modal-footer-bg: #F2F2F2;
+
+
   --bs-modal-footer-border-color: var(--bs-border-color);
   --bs-modal-footer-border-width: 1px;
   position: fixed;
@@ -6188,6 +6192,8 @@ fieldset:disabled .btn {
 .modal-content {
   position: relative;
   display: flex;
+  border-radius: 5px;
+  /* border-radius: 10px 0 0 10px; */
   flex-direction: column;
   width: 100%;
   color: var(--bs-modal-color);
@@ -6229,6 +6235,7 @@ fieldset:disabled .btn {
   border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
   border-top-left-radius: var(--bs-modal-inner-border-radius);
   border-top-right-radius: var(--bs-modal-inner-border-radius);
+  background-color: var(--bs-modal-header-bg);
 }
 
 .modal-header .btn-close {
@@ -13356,7 +13363,55 @@ input:checked+.slider:before {
   border: 1px solid red;
 }
 
+.movable-div {
+  position: relative;
+}
 
+.movable-div i {
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+}
+
+/* Styling for the modal container */
+.modal-tender {
+  display: none;
+  position: relative;
+  z-index: 1;
+  left: 0;
+  top: 50;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Styling for the modal content */
+.modal-tender-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Close button styling */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Close button hover effect */
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 /* 

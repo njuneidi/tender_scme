@@ -9,9 +9,12 @@ if (session_status() === PHP_SESSION_NONE) {
     header("Location: ../../index.php");
     exit;
 }
-require_once 'init_question.php';
-require_once 'question_type/init_question_type.php';
+// require_once 'init_question.php';
+// require_once 'question_type/init_question_type.php';
 ?>
 <div id="questionList">
-    <?PHP require_once 'questions_list_view.php'; ?>
+    <div id="ql">
+        <?PHP require_once 'questions_list_view.php'; ?>
+    </div>
+
 </div>

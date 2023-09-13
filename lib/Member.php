@@ -89,7 +89,7 @@ class Member
         $query = 'SELECT member.*, user.*
         FROM tender.`member` member, tender.`user` user
         WHERE 
-            member.user_id = user.user_id and user.user_type=2 and user.super_admin =0';
+            member.user_id = user.user_id /*and user.user_type=2*/ and user.super_admin =0';
         // echo $username;
         $paramType = '';
         $paramValue = array(

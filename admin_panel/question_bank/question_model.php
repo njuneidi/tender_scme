@@ -89,7 +89,17 @@ class QuestionModel
         );
         $this->ds->insert($query, $paramType, $paramValue);
     }
-
+    public function validateDeleteQuestion($id)
+    {
+        // echo $id;
+        $query = "SELECT COUNT(*) AS count
+        FROM tender_questions
+        WHERE question_bank_id = ?;";
+        // echo $query;
+        $paramType = 's';
+        $paramValue = array($id);
+        return $this->ds->select($query, $paramType, $paramValue);
+    }
 
     public function deleteQuestion($id)
     {

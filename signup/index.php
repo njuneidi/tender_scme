@@ -21,7 +21,7 @@
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <!-- <script src="assets/js/bootstrap.bundle.min.js.map"></script> -->
     <script defer src="../assets/js/datatables-simple-demo.js"></script>
-
+    ]
     <script defer src="../assets/js/jquery-3.6.4.js"></script>
     <script defer src="../assets/js/scripts.js"></script>
     <script defer src="../assets/js/javascript.js"></script>

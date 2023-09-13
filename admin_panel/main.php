@@ -11,15 +11,17 @@
     //$_SESSION['link'] = $_POST['menuItem'];
     if (!empty($_SESSION['content'])) {
         switch ($_SESSION['content']) {
-            case $init::adminMenu['a_dashboard']:
+            case $init::menueItems['dashboard']:
+                // echo "Admin Panel";
+                require_once('tender_management/index.php');
+                break;
+            case $init::menueItems['members']:
+                // echo 44;
+                require_once('init_admin_records.php');
+                require_once 'user_managment/menu_item_users_managment.php';
 
                 break;
-            case $init::adminMenu['a_members']:
-
-                require_once 'view/menu_item_members_managment.php';
-
-                break;
-            case $init::adminMenu['a_users']:
+            case $init::menueItems['users']:
                 ?>
                 <div id='a2'>
                     <?PHP
@@ -29,28 +31,30 @@
                 </div>
                 <?PHP
                 break;
-            case $init::adminMenu['a_questions']:
+            case $init::menueItems['questions']:
                 require_once('question_bank/index.php');
                 break;
-            case $init::adminMenu['a_tenders']:
+            case $init::menueItems['tenders']:
+                require_once('tender_management/index.php');
+                break;
+            case $init::menueItems['tenders-list']:
+                require_once('tender_management/index.php');
+
+                break;
+            // case $init::menueItems['dashboard']:
+            //     # code...
+            //     break;
+            case $init::menueItems['profile']:
+                require_once('user_profile/index.php');
                 # code...
                 break;
-            case $init::adminMenu['a_tenderList']:
+            case $init::menueItems['attachments']:
                 # code...
                 break;
-            case $init::userMenu['u_dashboard']:
-                # code...
-                break;
-            case $init::userMenu['u_userProfile']:
-                # code...
-                break;
-            case $init::userMenu['u_attachments']:
-                # code...
-                break;
-            case $init::userMenu['u_tenders']:
-                # code...
-                break;
-            case $init::userMenu['u_mytenders']:
+            // case $init::menueItems['tenders-list']:
+            //     # code...
+            //     break;
+            case $init::menueItems['my-tenders']:
                 # code...
                 break;
 

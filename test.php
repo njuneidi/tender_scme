@@ -5,6 +5,16 @@ http: //localhost/tender_scme/admin_panel/uploads/njiy24dycicoq/%D8%B4%D9%87%D8%
 echo crypt('scrifsadfsdapffffffffftverse', 'ql') . PHP_EOL;
 echo '<br>';
 echo crypt('scridptversef', 'SL') . PHP_EOL;
+// $websocket = new WebSocket("ws://localhost:8080/");
+
+$websocket->on("message", function ($message) {
+  echo "Received message: " . $message;
+});
+
+$websocket->send("Hello, world!");
+
+$websocket->close();
+
 // $file = 'a.pdf';
 // $filename = 'filename.pdf';
 

@@ -1,0 +1,114 @@
+<div class="card-body collapse show" id="add-question-to-the-bank" style="background-color: rgb(240, 248, 255);">
+    <code dir="rtl">
+        <div id="addQuestionForm" dir="rtl" style="border-radius: 0px;">
+            <form id="addQuestion"></form>
+<div id="errorMessage" class="alert alert-warning d-none"></div>
+
+<div class="row">
+<div class=" m-1">
+<label for="question_title">Title</label>
+
+</div>
+<div class="col-md-12 mb-3">
+
+<div class="form-group input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"> <svg class="svg-inline--fa fa-question m-1 alert-primary" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="question" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M64 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H128C57.3 32 0 89.3 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></svg><!-- <i class="fa fa-question m-1 alert-primary"></i> Font Awesome fontawesome.com -->
+</span>
+</div><input type="text" class="form-control" id="question_title" name="question_title" placeholder="Enter question question_title">
+<input type="hidden" name="question_id" id="question_id">
+<input type="hidden" name="action" id="action">
+<!-- <input type="hidden" name="source" id="source" value="<? PHP ?>"> -->
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="row">
+<div class="mb-3">
+<div class="form-group">
+<div class="m-1"> <label for="question_description">Description</label>
+</div>
+<textarea class="form-control" id="question_description" name="question_description" rows="3"></textarea>
+</div>
+</div>
+
+</div>
+
+<div class="row">
+    <div class="mb-3">
+        <div class="form-group">
+            <div class="m-1"> 
+                <label for="question_type">Question Type</label>
+            </div>
+            <select class="form-control" id="question_type" name="question_type">
+
+                <option value="1"> سؤال قصير</option><option value="2">صح/خطأ</option><option value="3">نعم/لا</option><option value="4">اختيار من متعدد</option><option value="5">اختيار متعدد</option><option value="6">مقالة</option>
+            </select>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="mb-1">
+        <div id="answerMainContainer" class="m-3">
+            <input type="hidden" name="answer_no" id="answer_no" value="2">
+            <div id="answerContainer" class="row">
+               
+                
+                </div>
+                <div id="rowAnswer2" class="row">
+                    <div class="col-md-10">
+                        <input type="text" name="answers[]" id="questionAnswer2" class="form-control" placeholder="أضف اجابتك">
+                    </div>
+                    <div class="col-md-2"><svg class="svg-inline--fa fa-trash btn btn-link" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg><!-- <i class="fa fa-trash btn btn-link"></i> Font Awesome fontawesome.com -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="m-1" id="addAnswer" onclick="addAnswer()">
+                    <svg class="svg-inline--fa fa-plus" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H176V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H240V80z"></path></svg><!-- <i class="fa fa-add"></i> Font Awesome fontawesome.com -->
+                        <label for="">اضافة سؤال</label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 
+<script src="../assets/js/jquery-3.6.4.js"></script>
+
+
+
+<script>
+const questionType = document.getElementById('question_type');
+questionType.addEventListener("change", () => {
+// alert(questionType.value);
+
+if (questionType.value > 3 && questionType.value < 6) {
+const questionAnswerContainer = document.getElementById("answerContainer");
+while (questionAnswerContainer.firstChild) {
+questionAnswerContainer.removeChild(questionAnswerContainer.firstChild);
+}
+$('#answerMainContainer').removeClass('d-none');
+$('#addAnswer').removeClass('d-none');
+addAnswer();
+
+
+} else {
+$('#answerMainContainer').addClass('d-none');
+}
+
+
+})
+
+
+</script> -->    <button id="add_edit_question" type="submit" class="btn btn-primary" value="1">
+حفظ    </button>
+
+</div>                                                </code>
+</div>
